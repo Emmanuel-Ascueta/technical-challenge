@@ -1,0 +1,44 @@
+.succes-icon {
+  color: #4CAF50;
+}
+
+.warning-icon {
+  color: #FFC107;
+}
+
+.error-icon {
+  color: #F44336;
+}
+
+.dialog-title,
+.dialog-content,
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.success-icon,
+.warning-icon,
+.error-icon {
+  font-size: 24px;
+  margin-right: 0 2px;
+}
+
+.dialog-actions {
+  justify-content: center;
+  margin-top: 24px;
+}
+
+@media (min-width: 650px) {
+  .modal-dm{
+    width: 400px;
+  }
+}
+
+@media (max-width: 649px) {
+  .modal-dm{
+    width: 500px;
+  }
+}

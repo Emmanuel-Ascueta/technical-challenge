@@ -1,0 +1,60 @@
+<div class="loading-overlay" *ngIf="isLoading">
+  <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+</div>
+
+<div class="d-flex justify-content-center align-items-center">
+  <div class="col-10 mat-elevation-z8">
+
+    <div class="d-flex justify-content-between p-4">
+      <mat-card-title>
+        <h1>Listado de Interpretes</h1>
+      </mat-card-title>
+      <button color="primary" mat-flat-button (click)="createMusic()">
+        Agregar interprete
+      </button>
+    </div>
+
+    <table mat-table [dataSource]="dataMusic">
+      <ng-container matColumnDef="artist">
+        <th mat-header-cell *matHeaderCellDef>Intérprete</th>
+        <td mat-cell *matCellDef="let music">{{music.artists}}</td>
+      </ng-container>
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef class="d-none d-md-table-cell">Título</th>
+        <td mat-cell *matCellDef="let music" class="d-none d-md-table-cell">{{music.title}}</td>
+      </ng-container>
+      <ng-container matColumnDef="album">
+        <th mat-header-cell *matHeaderCellDef class="hideOn450">Albúm</th>
+        <td mat-cell *matCellDef="let music" class="hideOn450">{{music.album}}</td>
+      </ng-container>
+      <ng-container matColumnDef="cover">
+        <th mat-header-cell *matHeaderCellDef class="hideOn800">Portada</th>
+        <td mat-cell *matCellDef="let music" class="hideOn800">
+          <img [src]="music.cover" width="100" height="100" class="hideOn800">
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="releaseDate">
+        <th mat-header-cell *matHeaderCellDef class="hideOn450">Lanzamiento</th>
+        <td mat-cell *matCellDef="let music" class="hideOn450">{{music.releaseDate}}</td>
+      </ng-container>
+      <ng-container matColumnDef="tools">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let music; let i = index">
+          <button mat-icon-button (click)="editMusic(indexPage(i))">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteMusic(indexPage(i), music.artists)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-header-row *matRowDef="let row; columns: columns;"></tr>
+
+    </table>
+    <div class="paginator-container">
+      <mat-paginator [hidePageSize]="true" [pageSize]="10" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>
