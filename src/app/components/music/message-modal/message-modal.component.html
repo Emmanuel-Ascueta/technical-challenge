@@ -1,0 +1,16 @@
+<div class="modal-dm">
+  <div mat-dialog-title class="dialog-title">
+    <mat-icon [ngClass]="{'success-icon': data.type === 'success',
+    'warning-icon': data.type === 'warning', 'error-icon': data.type === 'error'}">
+    {{data.type === 'success' ? 'check_circle' : data.type === 'warning' ?  'warning' : 'error'}}
+    </mat-icon>
+  </div>
+  <div mat-dialog-content class="dialog-content">
+    <p>{{ data.message }}</p>
+  </div>
+  <div mat-dialog-actions class="dialog-actions">
+    <button color="primary" mat-flat-button (click)="onConfirm()">Aceptar</button>
+    <button color="warn" mat-flat-button *ngIf="data.type === 'warning'" (click)="onCancel()">Cancelar</button>
+  </div>
+</div>
+

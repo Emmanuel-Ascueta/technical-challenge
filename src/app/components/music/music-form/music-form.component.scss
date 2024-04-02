@@ -1,0 +1,19 @@
+.mat-mdc-card-header-text {
+  width: 100% !important;
+}
+
+.mat-mdc-form-field {
+  display: unset;
+}
+
+@media (min-width: 650px) {
+  .modal-md{
+    width: 500px;
+  }
+}
+
+@media (max-width: 649px) {
+  .modal-md{
+    width: 400px;
+  }
+}
